@@ -4,8 +4,8 @@ This library is a Vue.js plugin providing you with an element which acts as exte
 
 It's written in ES6. It's my first Js/Vue software, so:
 
-1. Be patient - don't expect proffesional code.
-2. Be helpful - hints and PRs for improvements welcome.
+1. Be patient - don't expect professional code.
+2. Be helpful - hints and PRs for improvements are welcome.
 
 ## Usage
 ```javascript
