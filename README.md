@@ -1,6 +1,11 @@
 # vue-extensions
 
-This library is a Vue.js plugin which creates a component which acts as extension point, with a named "hook". Plugins can then provide plugin components for this extension point which are automatically found and rendered replacing the extension.
+This library is a Vue.js plugin providing you with an element which acts as extension point. This extension has a named "hook". Plugins then can provide components for this extension point which are automatically found and rendered replacing the extension.
+
+It's written in ES6. It's my first Js/Vue software, so:
+
+1. Be patient - don't expect proffesional code.
+2. Be helpful - hints and PRs for improvements welcome.
 
 ## Usage
 ```javascript
