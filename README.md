@@ -1,17 +1,19 @@
-# vue-extensions
+# vue-extensionpoints
 
 This library is a Vue.js plugin providing you with an element which acts as extension point. This extension has a named "hook". Plugins then can provide components for this extension point which are automatically found and rendered replacing the extension.
 
-It's written in ES6. It's my first Js/Vue software, so:
+## Install
 
-1. Be patient - don't expect professional code.
-2. Be helpful - hints and PRs for improvements are welcome.
+```bash
+# does not work yet...
+# npm install vue-extensionpoints
+```
 
 ## Usage
 ```javascript
 // main.js
-import Extensions from 'vue-extensions'
-import foo from './plugins/foo'
+import Extensions from 'vue-extensionpoints'
+import foo from '@/plugins/foo'
 
 Vue.use(Extensions, {plugins: {foo}})
 
@@ -20,7 +22,9 @@ new Vue({
 })
 ```
 
-This is all you need for having now an `<extension>` tag available anywhere:
+You can import the `options` object from a file that can be created automatially, depending on how you have structured your plugin structures.
+
+You have an `<extension>` tag available now:
 
 ```html
 <template>
@@ -32,8 +36,9 @@ This is all you need for having now an `<extension>` tag available anywhere:
 
 Now, in plugins/foo.js:
 
-```
+```javascript
 import FooListElement from './components/list_element'
+import { FooElement, BazElement } from './components/elements'
 
 export default {
     hooks: {
@@ -43,19 +48,10 @@ export default {
 }
 ```
 
-vue-extensions finds this file and renders the two elements instead of the <extension> element. You have to make sure that your components do what they promise: in this case, FooListElement should render a <li> element containing some things.
+vue-extensionpoints finds this file and renders the hooked elements replacing the <extension> element, one after another. You have to make sure that your components do what they promise: in this case, FooListElement should render a <li> element - because it will be rendered within an <ul> element. But thee are no constraints, you are free to choose whatever you want here.
 
-### Project setup
-```
-npm install
-```
 
-#### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-#### Compiles and minifies library for production
+#### Compile and minifies library for production
 ```
 npm run build-lib
 ```
@@ -69,6 +65,3 @@ npm run test
 ```
 npm run lint
 ```
-
-#### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

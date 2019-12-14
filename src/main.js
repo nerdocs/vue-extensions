@@ -34,8 +34,8 @@ export default {
             }
         }
 
-        Vue.component("extension", {
-            name: "extension",
+        Vue.component("extensionpoint", {
+            name: "extensionpoint",
             props: {
                 hook: String
             },
@@ -45,9 +45,8 @@ export default {
                 }
             },
             template: `
-            <div class="extension-container">
-                <component :is="plugin_component" v-for="plugin_component in plugins">
-                </component>
+            <div class="extensionpoint-container">
+                <component :is="plugin_component" v-for="plugin_component in plugins"/>
             </div>
             `
         })
