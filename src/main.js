@@ -20,12 +20,13 @@ export default {
             }
             for (let hook in plugin.hooks) {
                 if (hook_registry[hook] === undefined) {
-                    hook_registry[hook] = plugin.hooks[hook]
+                    hook_registry[hook] = Array.isArray(plugin.hooks[hook])?
+                      plugin.hooks[hook] : [plugin.hooks[hook]]
                 }
                 // console.debug(plugin.name + ": registering a component for hook '" + hook + "'")
 
                 // add plugin's component(s) to registry
-                if (Array.isArray(hook_registry[hook])) {
+                if (Array.isArray(plugin.hooks[hook])) {
                     hook_registry[hook].concat(plugin.hooks[hook])
                 } else {
                     hook_registry[hook].push(plugin.hooks[hook])
