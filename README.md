@@ -5,7 +5,6 @@ This library is a Vue.js plugin providing you with an element which acts as exte
 ## Install
 
 ```bash
-# does not work yet...
 # npm install vue-extensionpoints
 ```
 
