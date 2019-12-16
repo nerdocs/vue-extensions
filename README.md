@@ -8,7 +8,7 @@ If you just need a list of the same component, just with different data, don't u
 
 ## Install
 
-The easiest way to install this library in your project is to use the corresponding Vue plugin [extensionpoints](https://github.com/nerdocs/vue-cli-plugin-extensionpoints). It will do all magic for you: 
+The easiest way to install this library in your project is to use the corresponding Vue CLI plugin [extensionpoints](https://github.com/nerdocs/vue-cli-plugin-extensionpoints). It will do all magic for you: 
 ```bash
 # vue add extensionpoints
 ```
