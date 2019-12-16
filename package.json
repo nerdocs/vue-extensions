@@ -1,6 +1,6 @@
 {
   "name": "vue-extensionpoints",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": "Christian González <christian.gonzalez@nerdocs.at>",
   "scripts": {
@@ -9,6 +9,10 @@
     "build-lib": "vue-cli-service build --target lib --name vue-extensionpoints src/main.js",
     "lint": "vue-cli-service lint",
     "prepublish": "npm run lint  && npm run build-lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nerdocs/vue-extensionpoints"
   },
   "main": "./dist/vue-extensionpoints.common.js",
   "dependencies": {
