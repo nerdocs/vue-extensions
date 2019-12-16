@@ -62,7 +62,7 @@ export default {
 }
 ```
 
-You have an `<extension>` tag in your project available now:
+You have an `<extensionpoint>` tag in your project available now:
 
 ```html
 <template>
@@ -72,7 +72,7 @@ You have an `<extension>` tag in your project available now:
 </template>
 ```
 
-The *vue-extensionpoints* plugin renders the hooked elements replacing the <extension> element, one after another. It's up to you what the plugin is rendering: One plugin can render a simple `<div>` element with an image, the next plugin (same hook!) can render a complicated component with variables, sub-components etc. The `extensionpoint` renders them one after another. You only have to make sure that your components do what they promise: in the sample case above, `FooListElement` should render a <li> element - because it will be rendered within an <ul> element. But thee are no constraints, you are free to choose.
+The *vue-extensionpoints* plugin renders the hooked elements replacing the <extensionpoint> element, one after another. It's up to you what the plugin is rendering: One plugin can render a simple `<div>` element with an image, the next plugin (same hook!) can render a complicated component with variables, sub-components etc. The `extensionpoint` renders them one after another. You only have to make sure that your components do what they promise: in the sample case above, `FooListElement` should render a \<li\> element - because it will be rendered within an \<ul\> element. But thee are no constraints, you are free to choose.
  
 
 ## Development
@@ -81,19 +81,19 @@ You have an idea, improvement, found a bug? Don't hesitate to contact me. PRs an
 
 ## License
 
-vue-extensionpoints is licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license
+`vue-extensionpoints` is licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license
 
-#### Compile and minifiy library for production
+#### Compiles and minifies library for production
 ```
 npm run build-lib
 ```
 
-#### Run your tests
+#### Runs your tests
 Currently there are no tests, because of three important causes:
 
-a) I'm lazy
-b) tests are not necessary here
-c) I'm lazy - did I say that already?
+* I'm lazy
+* tests are not necessary here
+* I'm lazy - did I say that already?
 
 ```
 npm run test
