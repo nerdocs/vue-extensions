@@ -13,7 +13,7 @@ export default {
      */
     install: (Vue, options) => {
 
-        for (var pluginName in options.plugins) {
+        for (let pluginName in options.plugins) {
             let plugin = options.plugins[pluginName]
             if(plugin.initialize){
                 plugin.initialize()
