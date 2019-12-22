@@ -38,7 +38,7 @@ Now import that file in `main.js` and pass it to `vue-extensionpoints`:
 import Extensionpoints from 'vue-extensionpoints'
 import plugins from '@/plugins'
 
-Vue.add(Extensionpoints, plugins)
+Vue.add(Extensionpoints, {plugins})
 
 new Vue({
     //...
