@@ -5,11 +5,14 @@ export default {
     /**
      * Vue's plugin install hook.
      *
-     * Collects all available plugins and maintains a list of hooks.
+     * Collects all available plugins and maintains a list of hooks, pointing to them.
      * @param {Object} Vue The main Vue instance
-     * @param {Object} options An object of available options:
-     *      "plugins": a Vue component (or list of components) that fits this
-     *                 extension.
+     * @param {Object} options An named index of objects:
+     *      "plugins": a named index of modules that export a plugin:
+     *              name: the name of the plugin
+     *              hooks: named index of hooks, each pointing to a list of Vue components
+     *                  implementing that hook. They will be rendered at each extensionpoint
+     *                  that has the same hook name.
      */
     install: (Vue, options) => {
 
