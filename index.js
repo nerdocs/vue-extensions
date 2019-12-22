@@ -47,7 +47,7 @@ export default {
             },
             template: `
             <div class="extensionpoint-container">
-                <component :is="plugin_component" v-for="plugin_component in plugins"/>
+                <component :is="plugin_component" v-for="plugin_component in plugins" :key="plugin_component.id"/>
             </div>
             `
         })
