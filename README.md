@@ -13,51 +13,13 @@ The easiest way to install this library in your project is to use the correspond
 # vue add extensions
 ```
 
-#### Manual install
+This adds everything you need automatically to your project. Just make sure that `runtimeCompiler: true` is enabled in `vue.config.js` - to use template strings in Vue.
 
-You can do everything manually too, if you want:
-```bash
-npm install vue-extensions
-```
-and add the following code:
-
-Create a file, e.g. named `extensions.js`, which exports all of your extensions as default (you can e.g. automate the creation of this file in a script):
-```javascript
-import FooPlugin from '@/extensions/fooplugin'
-import BarPlugin from 'my/path/to/some/extensions/barextension.js'
-
-export default {
-    FooExtension,
-    BarExtension
-}
-```
-
-Now import that file into `main.js` and pass it as "extensions" option to `vue-extensions`:
-
-```javascript
-
-import Extensionpoints from 'vue-extensions'
-import AppExtensions from '@/extensions'  // you can freely rename that
-
-Vue.add(Extensionpoints, {extensions: AppExtensions})
-
-new Vue({
-    //...
-})
-```
-
-Note that you have to enable Vue's runtime compiler if you want to render single file template components as extensions!
-
-```Javascript
-// vue.config.js
-module.exports = {
-  runtimeCompiler: true
-}
-```
+If you choose to install everything manually, see [Manual install](manuall-install.md).
 
 ## Extensions
 
-Easily said: Extensions are Javascript modules that export a `hooks` object, which is a named index pointing to Vue components:
+Extensions are modules that export a default object with a `hooks` property, which is a named index pointing to Vue components. This seems complicated, but an example makes it much clearer:
 
 ```javascript
 // extensions/FooExtension/index.js
@@ -72,18 +34,26 @@ export default {
 }
 ```
 
-You have an `<extensionpoint>` tag in your project available now:
+One module can provide components for more than one hooks.
+
+There is an `<extensionpoint>` tag in your project available now:
 
 ```html
 <template>
+    <h3>Extensionpoints for "my-list-element" in a list:</h3>
     <ul>
-        <extensionpoint hook="my-list-element">
+        <extensionpoint hook="my-list-element"/>
     </ul>
+
+    <h3>Extensionpoints for "blah-another-hook"</h3>
+    <extensionpoint hook="blah-another-hook"/>
 </template>
 ```
 
 The *vue-extensions* plugin renders the hooked elements replacing the <extensionpoint> element, one after another. It's up to you what the extensions are rendering: One extension can render a simple `<div>` element with an image, the next extension (same hook!) can render a complicated component with variables, sub-components etc. The `<extensionpoint>` renders them one after another. You only have to make sure that your components do what they promise: in the sample case above, `FooListElement` should render a \<li\> element - because it will be rendered within an \<ul\> element. But there are no constraints, you are free to choose.
 
+## Further usage
+The extensions.js file (or how you choose to name it) is intended to be created automatically by a script of your choice - If you want to see a project that uses this, see my [GDAPS][https://gdaps.readthedocs.io], which is a Django plugin system that can use Vue as frontend.
 
 ## Development
 
