@@ -31,7 +31,7 @@ export default {
 }
 ```
 
-Now import that file in `main.js` and pass it to `vue-extensionpoints`:
+Now import that file into `main.js` and pass it to `vue-extensions`:
 
 ```javascript
 
@@ -72,7 +72,7 @@ You have an `<extensionpoint>` tag in your project available now:
 </template>
 ```
 
-The *vue-extensionpoints* plugin renders the hooked elements replacing the <extensionpoint> element, one after another. It's up to you what the plugin is rendering: One plugin can render a simple `<div>` element with an image, the next plugin (same hook!) can render a complicated component with variables, sub-components etc. The `extensionpoint` renders them one after another. You only have to make sure that your components do what they promise: in the sample case above, `FooListElement` should render a \<li\> element - because it will be rendered within an \<ul\> element. But thee are no constraints, you are free to choose.
+The *vue-extensions* plugin renders the hooked elements replacing the <extensionpoint> element, one after another. It's up to you what the plugin is rendering: One plugin can render a simple `<div>` element with an image, the next plugin (same hook!) can render a complicated component with variables, sub-components etc. The `extensionpoint` renders them one after another. You only have to make sure that your components do what they promise: in the sample case above, `FooListElement` should render a \<li\> element - because it will be rendered within an \<ul\> element. But there are no constraints, you are free to choose.
 
 
 ## Development
