@@ -95,7 +95,7 @@ You have an idea, improvement, found a bug? Don't hesitate to contact me. PRs an
 
 #### Compiles and minifies library for production
 ```
-npm run build-lib
+npm run build
 ```
 
 #### Runs your tests
