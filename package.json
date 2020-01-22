@@ -1,22 +1,22 @@
 {
-  "name": "vue-extensionpoints",
-  "version": "0.1.5",
+  "name": "vue-extensions",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Christian González <christian.gonzalez@nerdocs.at>",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vue-extensionpoints index.js",
+    "build": "vue-cli-service build --target lib --name vue-extensions index.js",
     "lint": "vue-cli-service lint",
     "prepublish": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nerdocs/vue-extensionpoints"
+    "url": "git://github.com/nerdocs/vue-extensions"
   },
   "bugs": {
-    "url": "https://github.com/nerdocs/vue-extensionpoints/issues"
+    "url": "https://github.com/nerdocs/vue-extensions/issues"
   },
-  "main": "./dist/vue-extensionpoints.common.js",
+  "main": "./dist/vue-extensions.common.js",
   "dependencies": {
     "core-js": "^3.4.3",
     "vue": "^2.6.10"
