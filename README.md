@@ -53,7 +53,7 @@ There is an `<extensionpoint>` tag in your project available now:
 The *vue-extensions* plugin renders the hooked elements replacing the <extensionpoint> element, one after another. It's up to you what the extensions are rendering: One extension can render a simple `<div>` element with an image, the next extension (same hook!) can render a complicated component with variables, sub-components etc. The `<extensionpoint>` renders them one after another. You only have to make sure that your components do what they promise: in the sample case above, `FooListElement` should render a \<li\> element - because it will be rendered within an \<ul\> element. But there are no constraints, you are free to choose.
 
 ## Further usage
-The extensions.js file (or how you choose to name it) is intended to be created automatically by a script of your choice - If you want to see a project that uses this, see my [GDAPS][https://gdaps.readthedocs.io], which is a Django plugin system that can use Vue as frontend.
+The extensions.js file (or how you choose to name it) is intended to be created automatically by a script of your choice - If you want to see a project that uses this, see my [GDAPS](https://gdaps.readthedocs.io), which is a Django plugin system that can use Vue as frontend.
 
 ## Development
 
