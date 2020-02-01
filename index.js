@@ -8,7 +8,7 @@ export default {
      * Collects all available extensions and maintains a list of hooks, pointing to them.
      * @param {Object} Vue The main Vue instance
      * @param {Object} options An named index of objects:
-     *      "extensions": a named index of modules that export a extension:
+     *      "extensions": a named index of modules that export an extension:
      *              name: the name of the extensions
      *              hooks: named index, each one pointing to a list of Vue
      *                  components implementing that hook. They will be
