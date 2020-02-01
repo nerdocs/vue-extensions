@@ -15,7 +15,7 @@ The easiest way to install this library in your project is to use the correspond
 
 This adds everything you need automatically to your project. Just make sure that `runtimeCompiler: true` is enabled in `vue.config.js` - to use template strings in Vue.
 
-If you choose to install everything manually, see [Manual install](manuall-install.md).
+If you choose to install everything manually, see [Manual install](manual-install.md).
 
 ## Extensions
 
