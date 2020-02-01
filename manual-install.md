@@ -25,7 +25,7 @@ Now import that file into `main.js` and pass it as "extensions" option to `vue-e
 import Extensionpoints from 'vue-extensions'
 import AppExtensions from '@/extensions'  // you can freely rename that
 
-Vue.add(Extensionpoints, {extensions: AppExtensions})
+Vue.use(Extensionpoints, {extensions: AppExtensions})
 
 new Vue({
     //...
