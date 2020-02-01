@@ -19,23 +19,23 @@ export default {
 
         for (let extensionName in options.extensions) {
             let extension = options.extensions[extensionName]
-            if(extension.initialize){
+            if(extension.initialize) {
                 extension.initialize()
             }
             for (let hook in extension.hooks) {
+                // make array
+                let componentArray = Array.isArray(extension.hooks[hook]) ?
+                    extension.hooks[hook]
+                    : [extension.hooks[hook]]
+
                 if (hookRegistry[hook] === undefined) {
-                    hookRegistry[hook] = Array.isArray(extension.hooks[hook])?
-                      extension.hooks[hook] : [extension.hooks[hook]]
-                }
-                // console.debug(extension.name + ": registering a component for hook '" + hook + "'")
-
-                // add extension's component(s) to registry
-                if (Array.isArray(extension.hooks[hook])) {
-                    hookRegistry[hook].concat(extension.hooks[hook])
+                    hookRegistry[hook] = componentArray
                 } else {
-                    hookRegistry[hook].push(extension.hooks[hook])
-                }
+                    // if extension provides an array, merge it
+                    hookRegistry[hook] = hookRegistry[hook].concat(componentArray)
 
+                }
+                // console.debug(`Registering component '${extensionName}' for hook '${hook}'`)
             }
         }
 
@@ -46,6 +46,7 @@ export default {
             },
             computed: {
                 extensions ()  {
+                    // console.log(`hook ${this.hook}: `, hookRegistry[this.hook])
                     return hookRegistry[this.hook]
                 }
             },
