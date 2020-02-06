@@ -19,7 +19,7 @@ If you choose to install everything manually, see [Manual install](manual-instal
 
 ## Extensions
 
-Extensions are modules that export a default object with a `hooks` property, which is a named index pointing to Vue components. This seems complicated, but an example makes it much clearer:
+Extensions are modules that export a default object with a `hooks` property, which is an array of objects, pointing to Vue components (with metadata). This seems complicated, but an example makes it much clearer:
 
 ```javascript
 // extensions/FooExtension/index.js
@@ -28,13 +28,31 @@ import {FooElement, BazElement} from './components/othercomponents.vue'
 
 export default {
     hooks: {
-        "my-list-element": [AComponent],
-        "blah-another-hook": [FooElement, BazElement]
-    }   
+        "my-list.element": [{ component: AComponent }],
+        "mycompany.hooks.ui.item": [
+            { component: FooElement, weight: 2 },
+            { component: BazElement, weight: 3 }
+        ]
+    },
+    routes: [{
+      path: '/foo',
+      component: () => import('layouts/MyLayout.vue'),
+      children: [
+        { path: '', component: () => import('./pages/fooIndex.vue') }
+      ]
+    }]
 }
 ```
 
-One module can provide components for more than one hooks.
+hooks
+
+    Hooks are strings that define an entry point for your extension components
+    Each hook points to an array of objects which declare:
+    
+    * **component**: the Vue component to render.
+    * weight: order of the component in a list. The higher the component's weight, the further it "sinks" down (or right) in the list.
+    
+    One module can provide components for more than one hooks.
 
 There is an `<extensionpoint>` tag in your project available now:
 
@@ -45,8 +63,8 @@ There is an `<extensionpoint>` tag in your project available now:
         <extensionpoint hook="my-list-element"/>
     </ul>
 
-    <h3>Extensionpoints for "blah-another-hook"</h3>
-    <extensionpoint hook="blah-another-hook"/>
+    <h3>Extensionpoints for "mycompany.hooks.ui.item"</h3>
+    <extensionpoint hook="mycompany.hooks.ui.item"/>
 </template>
 ```
 
