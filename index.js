@@ -45,6 +45,8 @@ export default {
               }
               // console.debug(`Registering component '${extensionName}' for hook '${hook}'`, extensionArray)
           }
+          // at this point, all extensions are registered.
+          // TODO: Make a list documentating all ExtensionPoints.
         }
 
         Vue.component('extensionpoint', {
