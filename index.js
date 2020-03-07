@@ -19,10 +19,12 @@ export default {
     install: (Vue, options) => {
 
         for (let extensionName in options.extensions) {
-            let extension = options.extensions[extensionName]
-            if(extension.initialize) {
-                extension.initialize()
-            }
+          let extension = options.extensions[extensionName]
+
+          if(extension.initialize) {
+              extension.initialize()
+          }
+
           for (let hook in extension.hooks) {
             let extensionArray = extension.hooks[hook]
 
