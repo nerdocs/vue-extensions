@@ -44,16 +44,17 @@ export default {
 }
 ```
 
-hooks
+### Hooks
 
-    Hooks are strings that define an entry point for your extension components
-    Each hook points to an array of objects which declare:
-    
-    * **component**: the Vue component to render.
-    * weight: order of the component in a list. The higher the component's weight, the further it "sinks" down (or right) in the list.
-    
-    One module can provide components for more than one hooks.
+Hooks are strings that define an entry point for your extension components
+Each hook points to an array of objects which declare:
 
+* **component**: the Vue component to render.
+* **weight**: order of the component in a list. The higher the component's weight, the further it "sinks" down (or right) in the list.
+
+One module can provide components for more than one hooks.
+
+### Extension points
 There is an `<extensionpoint>` tag in your project available now:
 
 ```html
