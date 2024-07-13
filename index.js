@@ -57,6 +57,9 @@ export default {
             computed: {
                 extensions ()  {
                     // console.log(`hook ${this.hook}: `, hookRegistry[this.hook])
+                    if (hookRegistry[this.hook] === undefined) {
+                      return null
+                    }
                     return hookRegistry[this.hook].sort((obj1, obj2) => {
                       return obj1.weight - obj2.weight
                     })
